@@ -1,7 +1,16 @@
+:root {
+    --base: #24273a;
+    --base-transparent: rgb(36  39 58 / 70%);
+    --lavender: #b7bdf8;
+    --color-text: #cad3f5;
+}
+
 * {
     padding: 0;
     box-sizing: border-box;
     margin: 0;
+    color: var(--color-text);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
@@ -26,24 +35,44 @@ body {
 .dock {
     width: 400px;
     height: 60px;
-    background-color: #2c2c2c;
+    background-color: var(--base-transparent);
     border-radius: 20px;
 }
 
 .top-bar {
-    background-color: #2c2c2c;
+    background-color: var(--base-transparent);
     height: 30px;
     width: 100%;
+}
+.desktop {
+    display: flex;
+    flex: 1;
+    padding: 10px;
+    justify-content: right;
+}
+
+.widget-clock{
+    border: var(--lavender) solid 1px;
+    border-radius: 10px;
+    background-color: var(--base-transparent);
+    text-align: center;
+    padding: 10px 20px;
+    font-weight: bold;
+}
+
+.clock-time{
+    font-size: 5rem;
 }
 
 .window {
     position: fixed;
     height: 500px;
     width: 500px;
-    top: 20px;
-    left: 10px;
-    background: rgb(235, 230, 230);
-    border-radius: 5px;
+    top: 25%;
+    left: 25%;
+    background: var(--base);
+    border-radius: 10px;
+    border: var(--lavender) solid 1px;
 }
 
 .window-header {
@@ -51,8 +80,8 @@ body {
     justify-content: flex-end;
     align-items: center;
     height: 30px;
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    background-color: #2c2c2c;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    background-color: var(--base);
     padding: 0 10px;
 }
