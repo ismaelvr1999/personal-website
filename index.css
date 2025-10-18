@@ -1,6 +1,6 @@
 :root {
     --base: #24273a;
-    --base-transparent: rgb(36  39 58 / 70%);
+    --base-transparent: rgb(36 39 58 / 70%);
     --lavender: #b7bdf8;
     --color-text: #cad3f5;
 }
@@ -14,7 +14,7 @@
 }
 
 body {
-    background-image: url("./images/wallpaper-3.jpg");
+    background-image: url("./images/wallpapers/wallpaper-3.jpg");
     background-size: cover;
     background-repeat: no-repeat;
 }
@@ -40,10 +40,19 @@ body {
 }
 
 .top-bar {
+    display: flex;
     background-color: var(--base-transparent);
     height: 30px;
     width: 100%;
+    justify-content: center;
+    align-items: center;
 }
+
+.top-bar-clock {
+    font-size: small;
+    font-weight: bold;
+}
+
 .desktop {
     display: flex;
     flex: 1;
@@ -51,17 +60,60 @@ body {
     justify-content: right;
 }
 
-.widget-clock{
+.widget {
     border: var(--lavender) solid 1px;
     border-radius: 10px;
     background-color: var(--base-transparent);
+    margin-bottom: 15px;
+}
+
+.widget-clock {
     text-align: center;
     padding: 10px 20px;
     font-weight: bold;
 }
 
-.clock-time{
+.clock-time {
     font-size: 5rem;
+}
+
+.widget-music-player {
+    display: flex;
+    padding: 10px;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.album-cover {
+    background-image: url("./images/album_covers/Selected_Ambient_Works_85-92.png");
+    background-size: cover;
+    border-radius: 5px;
+    width: 125px;
+    height: 125px;
+}
+
+.song-info {
+    margin-bottom: 5px;
+    text-align: center;
+    font-weight: bold;
+}
+
+.player-controls {
+    text-align: center;
+    color: var(--color-text);
+}
+
+progress {
+    height: 8px;
+    border-radius: 5px;
+    border: var(--lavender) solid 1px ;
+    background-color: var(--base-transparent);
+    margin-bottom: 5px;
+}
+
+progress::-moz-progress-bar {
+    background-color: var(--lavender);
 }
 
 .window {

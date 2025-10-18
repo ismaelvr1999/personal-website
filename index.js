@@ -2,14 +2,18 @@ const windowElement = document.getElementById("window");
 const windowHeader = document.getElementById("windowHeader");
 const clockTimerElement = document.getElementById("clockTime");
 const clockDateElement = document.getElementById("clockDate");
+const clockTopBarElement = document.getElementById("topBarClock");
 
 let offsetPositionX, offsetPositionY = 0;
 let isWindowDragging = false;
 
 clockDateElement.innerText = new Date().toDateString();
+
 setInterval(() => {
     const date = new Date();
-    clockTimerElement.innerText = formatTime(date.toTimeString());
+    const currentTime = formatTime(date.toTimeString());
+    clockTopBarElement.innerText = `${formatDate(date.toDateString())} ${currentTime}`;
+    clockTimerElement.innerText = currentTime;
 }, 1000)
 
 window.addEventListener("mousemove", (e) => {
@@ -41,8 +45,12 @@ windowHeader.addEventListener("mouseup", (e) => {
 
 function formatTime(time) {
     let timeInfo = time.split(" ");
-    let [ Hour,Minute,Second] = timeInfo[0].split(":")
-    return `${Hour}:${Minute}`;
+    let [ hour,minute,] = timeInfo[0].split(":")
+    return `${hour}:${minute}`;
 }
 
+function formatDate(date) {
+    let [,month,day] = date.split(' ');
+    return `${month} ${day}`
+}
 
