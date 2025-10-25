@@ -1,0 +1,16 @@
+{
+    "0": {
+        "title": "Pulsewidth",
+        "artist": "Apex Twin",
+        "index": "0",
+        "src":"./songs/Pulsewidth.mp3",
+        "cover":"./images/album_covers/Selected_Ambient_Works_85-92.png"
+    },
+    "1": {
+        "title": "Smokes Quantity",
+        "artist": "Boards of Canada",
+        "index": "1",
+        "src":"./songs/Smokes_Quantity.mp3",
+        "cover":"./images/album_covers/boards_of_canada.jpg"
+    }
+}

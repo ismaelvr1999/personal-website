@@ -86,28 +86,47 @@ body {
 }
 
 .album-cover {
-    background-image: url("./images/album_covers/Selected_Ambient_Works_85-92.png");
     background-size: cover;
     border-radius: 5px;
     width: 125px;
     height: 125px;
 }
 
-.song-info {
+.marquee {
+    overflow: hidden;
+    white-space: nowrap;
     margin-bottom: 5px;
-    text-align: center;
-    font-weight: bold;
+    max-width: 180px;
 }
 
-.player-controls {
-    text-align: center;
-    color: var(--color-text);
+.song-title {
+    display: inline-block;
+    font-weight: bold;
+    padding-left: 100%;
+    animation: move 5s linear infinite;
+}
+
+@keyframes move {
+    from {
+        transform: translateX(0);
+    }
+
+    to {
+        transform: translateX(-100%);
+    }
+}
+
+.progress-bar {
+    display: flex;
+    align-items: center;
+    width: 100%;
 }
 
 progress {
     height: 8px;
+    width: 100%;
     border-radius: 5px;
-    border: var(--lavender) solid 1px ;
+    border: var(--lavender) solid 1px;
     background-color: var(--base-transparent);
     margin-bottom: 5px;
 }
@@ -115,6 +134,47 @@ progress {
 progress::-moz-progress-bar {
     background-color: var(--lavender);
 }
+
+.progress-minutes {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 5px;
+    font-size: small;
+}
+
+.player-controls {
+    text-align: center;
+    color: var(--color-text);
+}
+
+.player-control {
+    cursor: pointer;
+    fill: red;
+}
+
+.hidden {
+    display: none;
+}
+
+input[type="range"] {
+    height: 5px;
+    background-color: var(--base-transparent);
+    border: var(--lavender) solid 1px;
+    height: 7px;
+    border-radius: 10px;
+}
+
+input[type="range"]::-moz-range-progress {
+    background-color: var(--lavender);
+    border-radius: 10px;
+    height: 6px;
+}
+
+.volumen-control {
+    display: flex;
+    align-items: center;
+}
+
 
 .window {
     position: fixed;

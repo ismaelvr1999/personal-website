@@ -16,6 +16,17 @@ setInterval(() => {
     clockTimerElement.innerText = currentTime;
 }, 1000)
 
+function formatTime(time) {
+    let timeInfo = time.split(" ");
+    let [hour, minute,] = timeInfo[0].split(":")
+    return `${hour}:${minute}`;
+}
+
+function formatDate(date) {
+    let [, month, day] = date.split(' ');
+    return `${month} ${day}`
+}
+
 window.addEventListener("mousemove", (e) => {
     if (isWindowDragging) {
         let windowsPositionY = `${e.clientY - offsetPositionY}px`;
@@ -43,14 +54,5 @@ windowHeader.addEventListener("mouseup", (e) => {
     isWindowDragging = false;
 })
 
-function formatTime(time) {
-    let timeInfo = time.split(" ");
-    let [ hour,minute,] = timeInfo[0].split(":")
-    return `${hour}:${minute}`;
-}
 
-function formatDate(date) {
-    let [,month,day] = date.split(' ');
-    return `${month} ${day}`
-}
 
