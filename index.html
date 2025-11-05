@@ -28,7 +28,11 @@
                 <div class="widget-music-player widget">
                     <audio id="musicPlayer" src="./songs/Pulsewidth.mp3"></audio>
                     <!-- album cover-->
-                    <div class="album-cover" id="albumCover"></div>
+                    <div class="album-cover" id="albumCover">
+                        <div class="hidden" id="loadingSongScreen">
+                            <p>Loading ...</p>
+                        </div>
+                    </div>
                     <div class="player-elements">
                         <!-- title song-->
                         <div class="marquee">
@@ -112,7 +116,8 @@
     </div>
 </body>
 
-<script src="index.js" defer></script>
+<script src="./js/index.js"></script>
 <script src="./js/widgets/music_player.js" defer> </script>
+<script src="./js/widgets/clock.js"></script>
 
 </html>
