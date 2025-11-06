@@ -52,18 +52,16 @@ function setUpSong() {
 }
 
 function pauseSong() {
-    if (musicPlayerElement.paused === false) {
-        musicPlayerElement.pause();
-        playBtn.classList.toggle("hidden");
-        pauseBtn.classList.toggle("hidden");
-    }
+    musicPlayerElement.pause();
+    playBtn.classList.remove("hidden");
+    pauseBtn.classList.add("hidden");
 }
 
 function playSong() {
     let waitUntilReady = setInterval(() => {
         if (canplay) {
-            playBtn.classList.toggle("hidden");
-            pauseBtn.classList.toggle("hidden");
+            playBtn.classList.add("hidden");
+            pauseBtn.classList.remove("hidden");
             musicPlayerElement.play();
             clearInterval(waitUntilReady);
         }
@@ -84,7 +82,8 @@ function playNextSong() {
 
 playBtn.addEventListener("click", playSong);
 
-pauseBtn.addEventListener("click", pauseSong);
+pauseBtn.addEventListener("click",pauseSong);
+
 
 musicPlayerElement.addEventListener("canplay", () => {
     canplay = true;
@@ -100,10 +99,9 @@ musicPlayerElement.addEventListener("durationchange", (e) => {
 musicPlayerElement.addEventListener("timeupdate", (e) => {
     songTimeProgress.innerText = formatSongDuration(Number(e.target.currentTime));
     progressBar.value = e.target.currentTime;
-    if (progressBar.value === progressBar.max) {
-        playNextSong();
-    }
 });
+
+musicPlayerElement.addEventListener("ended",playNextSong)
 
 volumenControl.addEventListener("change", (e) => {
     musicPlayerElement.volume = Number(e.target.value);
@@ -111,8 +109,8 @@ volumenControl.addEventListener("change", (e) => {
 
 nextButton.addEventListener("click",playNextSong);
 
-prevButton.addEventListener("click", async (e) => {
-    pauseSong();
+prevButton.addEventListener("click", (e) => {
+    pauseSong()
     currentSongIndex = getPrevSongIndex(currentSongIndex);
     setUpSong();
     playSong();
