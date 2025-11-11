@@ -146,6 +146,15 @@ progress {
 progress::-moz-progress-bar {
     background-color: var(--lavender);
 }
+/*Non-standard*/
+progress::-webkit-progress-bar {
+    background-color: var(--base-transparent);
+    color: red;
+}
+/*Non-standard*/
+progress::-webkit-progress-value {
+    background-color: var(--lavender);
+}
 
 .progress-minutes {
     display: flex;
@@ -169,11 +178,11 @@ progress::-moz-progress-bar {
 }
 
 input[type="range"] {
-    height: 5px;
     background-color: var(--base-transparent);
     border: var(--lavender) solid 1px;
     height: 7px;
     border-radius: 10px;
+    width: 100%;
 }
 
 input[type="range"]::-moz-range-progress {
@@ -185,8 +194,8 @@ input[type="range"]::-moz-range-progress {
 .volumen-control {
     display: flex;
     align-items: center;
+    width: 100%;
 }
-
 
 .window {
     position: fixed;
