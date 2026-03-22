@@ -11,11 +11,15 @@ const albumCover = document.getElementById("albumCover");
 const prevButton = document.getElementById("prevButton");
 const nextButton = document.getElementById("nextButton");
 const loadingSongScreen = document.getElementById("loadingSongScreen")
-
 let currentSongIndex = 0;
 let playlist = [];
 let canplay = false;
 musicPlayerElement.volume = 0.4;
+
+(async () => {
+    playlist = await fetchPlaylist();
+    setUpSong();
+})()
 
 function formatSongDuration(duration) {
     let minutes = String(Math.trunc(duration / 60)).padStart(2, 0);
@@ -35,7 +39,7 @@ function getPrevSongIndex(currentIndex) {
     return isIndexValid ? currentIndex : playlist.length - 1;
 }
 async function fetchPlaylist() {
-    return await fetch("./songs/playlist.json")
+    return await fetch("songs/playlist.json")
         .then(resp => resp.json())
         .then(resp => Object.values(resp));
 }
@@ -75,10 +79,6 @@ function playNextSong() {
     playSong();
 }
 
-(async () => {
-    playlist = await fetchPlaylist();
-    setUpSong();
-})()
 
 playBtn.addEventListener("click", playSong);
 

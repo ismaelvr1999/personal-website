@@ -1,8 +1,13 @@
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
 :root {
     --base: #24273a;
     --base-transparent: rgb(36 39 58 / 70%);
     --lavender: #b7bdf8;
     --color-text: #cad3f5;
+    --sky: #91d7e3;
+    --pink: #f5bde6;
+    --sapphire: #7dc4e4;
 }
 
 * {
@@ -33,12 +38,21 @@ body {
 }
 
 .dock {
+    display: flex;
+    align-items: center;
     width: 400px;
-    height: 60px;
     background-color: var(--base-transparent);
     border-radius: 20px;
+    padding: 10px;
 }
 
+
+.app-launcher {
+    cursor: pointer;
+}
+
+/* .app-launcher-icon {}
+ */
 .top-bar {
     display: flex;
     background-color: var(--base-transparent);
@@ -146,11 +160,13 @@ progress {
 progress::-moz-progress-bar {
     background-color: var(--lavender);
 }
+
 /*Non-standard*/
 progress::-webkit-progress-bar {
     background-color: var(--base-transparent);
     color: red;
 }
+
 /*Non-standard*/
 progress::-webkit-progress-value {
     background-color: var(--lavender);
@@ -206,6 +222,10 @@ input[type="range"]::-moz-range-progress {
     background: var(--base);
     border-radius: 10px;
     border: var(--lavender) solid 1px;
+}
+
+.close-app {
+    display: none;
 }
 
 .window-header {
